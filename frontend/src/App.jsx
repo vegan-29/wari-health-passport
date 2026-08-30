@@ -141,7 +141,28 @@ export default function App() {
 
 function LoginPage({ onLogin }) {
   const [username,setUsername]=useState("");const [password,setPassword]=useState("");const [showPassword,setShowPassword]=useState(false);const [error,setError]=useState("");const [loading,setLoading]=useState(false);
-  const handleSubmit=async(event)=>{event.preventDefault();setError("");if(!username.trim()||!password){setError("Please enter your username and password.");return;}setLoading(true);try{const data=await apiFetch("/doctor/login",{method:"POST",body:JSON.stringify({username:username.trim(),password})});if(!data.doctor?.doctor_id)throw new Error("Login succeeded but doctor information was not returned.");onLogin(data.doctor);}catch(e){console.error("Doctor login error:",e);setError(e.message||"Could not connect to the backend.");}finally{setLoading(false);}};
+  const handleSubmit = (event) => {
+  event.preventDefault();
+
+  if (!username.trim() || !password) {
+    setError("Please enter your username and password.");
+    return;
+  }
+
+  const doctor = DEMO_DOCTORS.find(
+    (item) =>
+      item.username === username.trim() &&
+      item.password === password
+  );
+
+  if (doctor) {
+    onLogin(doctor);
+    return;
+  }
+
+  setError("Invalid credentials. Use the demo credentials shown below.");
+};
+
   return <div className="login-page"><div className="login-card"><div className="brand-mark"><HeartPulse size={25}/></div><div className="login-heading"><span className="eyebrow">WARI MEDICAL PASSPORT</span><h2>Doctor Login</h2><p>Secure access for authorised medical camp personnel.</p></div><form onSubmit={handleSubmit}><label>Username</label><input type="text" value={username} onChange={e=>setUsername(e.target.value)} placeholder="Enter username" autoComplete="username"/><label>Password</label><div className="password-wrapper"><input type={showPassword?"text":"password"} value={password} onChange={e=>setPassword(e.target.value)} placeholder="Enter password" autoComplete="current-password"/><button type="button" className="password-toggle" onClick={()=>setShowPassword(v=>!v)}>{showPassword?"Hide":"Show"}</button></div>{error&&<div className="error-message"><AlertCircle size={14}/>{error}</div>}<button type="submit" className="primary-button" disabled={loading}><ShieldCheck size={15}/>{loading?"Signing in...":"Sign in"}</button></form><div className="demo-login"><strong>Demo access</strong><span>Username: anjali</span><span>Password: doctor123</span></div></div></div>;
 }
 
