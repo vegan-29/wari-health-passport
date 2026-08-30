@@ -1,0 +1,3760 @@
+/* =========================================================
+   WARI MEDICAL PASSPORT
+   GLOBAL STYLES
+   ========================================================= */
+
+:root {
+  --primary: #16758f;
+  --primary-dark: #105d73;
+  --primary-light: #eaf6f8;
+
+  --text: #17324d;
+  --text-secondary: #64788a;
+  --muted: #8a9aaa;
+
+  --border: #d9e3e9;
+  --border-light: #e8eef2;
+
+  --background: #f4f8fa;
+  --white: #ffffff;
+
+  --success: #23845c;
+  --success-bg: #edf8f2;
+
+  --danger: #c94d4d;
+  --danger-bg: #fff1f1;
+
+  --warning: #b7791f;
+  --warning-bg: #fff8e8;
+
+  --shadow: 0 8px 30px rgba(25, 55, 75, 0.08);
+  --shadow-small: 0 3px 12px rgba(25, 55, 75, 0.06);
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  min-width: 320px;
+
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  color: var(--text);
+  background: var(--background);
+
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid rgba(22, 117, 143, 0.18);
+  outline-offset: 1px;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+
+/* =========================================================
+   COMMON
+   ========================================================= */
+
+.eyebrow {
+  display: inline-block;
+
+  color: var(--primary);
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.muted-text {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.primary-button,
+.secondary-button,
+.logout-button,
+.back-button,
+.refresh-button,
+.view-patient-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  border-radius: 9px;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+/* Primary */
+
+.primary-button {
+  min-height: 44px;
+
+  padding: 10px 18px;
+
+  color: #ffffff;
+
+  background: var(--primary);
+
+  border: 1px solid var(--primary);
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.primary-button:hover {
+  background: var(--primary-dark);
+  border-color: var(--primary-dark);
+
+  box-shadow: 0 6px 18px rgba(22, 117, 143, 0.18);
+
+  transform: translateY(-1px);
+}
+
+.primary-button:active {
+  transform: translateY(0);
+}
+
+
+/* Secondary */
+
+.secondary-button {
+  min-height: 42px;
+
+  padding: 9px 16px;
+
+  color: var(--text);
+
+  background: var(--white);
+
+  border: 1px solid var(--border);
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.secondary-button:hover {
+  color: var(--primary);
+
+  border-color: var(--primary);
+
+  background: var(--primary-light);
+}
+
+
+/* Back */
+
+.back-button {
+  min-height: 38px;
+
+  padding: 8px 13px;
+
+  color: var(--text-secondary);
+
+  background: var(--white);
+
+  border: 1px solid var(--border);
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.back-button:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+
+/* Logout */
+
+.logout-button {
+  min-height: 38px;
+
+  padding: 8px 14px;
+
+  color: var(--text-secondary);
+
+  background: #ffffff;
+
+  border: 1px solid var(--border);
+
+  font-size: 12px;
+}
+
+.logout-button:hover {
+  color: var(--danger);
+  border-color: #e7bcbc;
+  background: var(--danger-bg);
+}
+
+
+/* Refresh */
+
+.refresh-button {
+  min-height: 34px;
+
+  padding: 7px 11px;
+
+  color: var(--text-secondary);
+
+  background: var(--white);
+
+  border: 1px solid var(--border);
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.refresh-button:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+
+/* View record */
+
+.view-patient-button {
+  padding: 7px 11px;
+
+  color: var(--primary);
+
+  background: var(--primary-light);
+
+  border: 1px solid transparent;
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.view-patient-button:hover {
+  border-color: #b9dce5;
+}
+
+
+/* =========================================================
+   LOGIN
+   ========================================================= */
+
+.login-page {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px 20px;
+
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(22, 117, 143, 0.08),
+      transparent 35%
+    ),
+    var(--background);
+}
+
+.login-card {
+  width: 100%;
+  max-width: 440px;
+
+  padding: 38px;
+
+  background: var(--white);
+
+  border: 1px solid var(--border);
+
+  border-radius: 18px;
+
+  box-shadow: var(--shadow);
+}
+
+
+/* Heart icon */
+
+.brand-mark {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 22px;
+
+  color: var(--primary);
+
+  background: var(--primary-light);
+
+  border-radius: 13px;
+}
+
+
+/* Login heading */
+
+.login-heading {
+  margin-bottom: 25px;
+}
+
+.login-heading h2 {
+  margin: 7px 0 8px;
+
+  color: var(--text);
+
+  font-size: 29px;
+  line-height: 1.2;
+
+  letter-spacing: -0.02em;
+}
+
+.login-heading p {
+  margin: 0;
+
+  color: var(--text-secondary);
+
+  font-size: 13px;
+}
+
+
+/* Login form */
+
+.login-card form {
+  display: flex;
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.login-card form label {
+  margin-top: 8px;
+
+  color: var(--text);
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+
+/* Inputs */
+
+.login-card input,
+.login-card .password-wrapper input {
+  width: 100%;
+  height: 46px;
+
+  padding: 0 13px;
+
+  color: var(--text);
+
+  background: #ffffff;
+
+  border: 1px solid var(--border);
+
+  border-radius: 9px;
+
+  font-size: 13px;
+
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.login-card input:focus {
+  border-color: var(--primary);
+
+  box-shadow:
+    0 0 0 3px rgba(22, 117, 143, 0.10);
+}
+
+.login-card input::placeholder {
+  color: #9aa8b4;
+}
+
+
+/* Password */
+
+.password-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.password-wrapper input {
+  padding-right: 65px !important;
+}
+
+.password-toggle {
+  position: absolute;
+
+  right: 8px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  padding: 6px 9px;
+
+  color: var(--text-secondary);
+
+  background: transparent;
+
+  border: none;
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.password-toggle:hover {
+  color: var(--primary);
+}
+
+
+/* Login button */
+
+.login-card .primary-button {
+  width: 100%;
+
+  margin-top: 12px;
+}
+
+
+/* Login error */
+
+.error-message {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  margin-top: 8px;
+
+  padding: 10px 12px;
+
+  color: var(--danger);
+
+  background: var(--danger-bg);
+
+  border: 1px solid #f0cccc;
+
+  border-radius: 8px;
+
+  font-size: 11px;
+}
+
+
+/* Demo */
+
+.demo-login {
+  display: flex;
+  flex-direction: column;
+
+  gap: 2px;
+
+  margin-top: 20px;
+  padding: 13px 14px;
+
+  color: var(--text-secondary);
+
+  background: #f7fafb;
+
+  border: 1px solid var(--border-light);
+
+  border-radius: 9px;
+
+  font-size: 11px;
+}
+
+.demo-login strong {
+  margin-bottom: 2px;
+
+  color: var(--text);
+
+  font-size: 11px;
+}
+
+
+/* =========================================================
+   MAIN HEADER
+   ========================================================= */
+
+.main-header {
+  min-height: 72px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 32px;
+
+  background: #ffffff;
+
+  border-bottom: 1px solid var(--border);
+
+  box-shadow: 0 2px 8px rgba(25, 55, 75, 0.03);
+}
+
+
+/* Brand */
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+
+  padding: 7px;
+
+  color: var(--text);
+
+  background: transparent;
+
+  border: none;
+
+  text-align: left;
+}
+
+.header-brand:hover {
+  opacity: 0.85;
+}
+
+.small-brand-icon {
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--primary);
+
+  background: var(--primary-light);
+
+  border-radius: 9px;
+}
+
+.header-brand strong {
+  display: block;
+
+  color: var(--text);
+
+  font-size: 14px;
+}
+
+.header-brand span {
+  display: block;
+
+  margin-top: 1px;
+
+  color: var(--text-secondary);
+
+  font-size: 10px;
+}
+
+
+/* Doctor */
+
+.doctor-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.doctor-info {
+  text-align: right;
+}
+
+.doctor-info strong {
+  display: block;
+
+  color: var(--text);
+
+  font-size: 12px;
+}
+
+.doctor-info span {
+  display: block;
+
+  color: var(--text-secondary);
+
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   DASHBOARD
+   ========================================================= */
+
+.dashboard-page {
+  min-height: calc(100vh - 72px);
+
+  padding: 42px 24px 60px;
+}
+
+.dashboard-container {
+  width: 100%;
+  max-width: 1080px;
+
+  margin: 0 auto;
+}
+
+.dashboard-heading {
+  margin-bottom: 28px;
+}
+
+.dashboard-heading h1 {
+  margin: 7px 0 8px;
+
+  color: var(--text);
+
+  font-size: 32px;
+  line-height: 1.2;
+
+  letter-spacing: -0.03em;
+}
+
+.dashboard-heading p {
+  max-width: 600px;
+
+  margin: 0;
+
+  color: var(--text-secondary);
+
+  font-size: 13px;
+}
+
+
+/* Stats */
+
+.dashboard-stats {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 14px;
+
+  margin-bottom: 20px;
+}
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  padding: 18px;
+
+  background: var(--white);
+
+  border: 1px solid var(--border);
+
+  border-radius: 12px;
+
+  box-shadow: var(--shadow-small);
+}
+
+.stat-icon {
+  width: 40px;
+  height: 40px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--primary);
+
+  background: var(--primary-light);
+
+  border-radius: 10px;
+}
+
+.stat-card span {
+  display: block;
+
+  color: var(--text-secondary);
+
+  font-size: 10px;
+}
+
+.stat-card strong {
+  display: block;
+
+  margin-top: 1px;
+
+  color: var(--text);
+
+  font-size: 20px;
+}
+
+
+/* Action cards */
+
+.dashboard-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 14px;
+
+  margin-bottom: 20px;
+}
+
+.dashboard-action-card {
+  min-height: 150px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  padding: 21px;
+
+  color: var(--text);
+
+  background: var(--white);
+
+  border: 1px solid var(--border);
+
+  border-radius: 13px;
+
+  text-align: left;
+
+  box-shadow: var(--shadow-small);
+
+  transition:
+    transform 0.2s,
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.dashboard-action-card svg {
+  margin-bottom: 18px;
+
+  color: var(--primary);
+}
+
+.dashboard-action-card strong {
+  margin-bottom: 5px;
+
+  font-size: 14px;
+}
+
+.dashboard-action-card span {
+  color: var(--text-secondary);
+
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.dashboard-action-card:hover {
+  transform: translateY(-3px);
+
+  border-color: #b8d9e2;
+
+  box-shadow: var(--shadow);
+}
+
+
+/* Dashboard section */
+
+.dashboard-section {
+  padding: 23px;
+
+  background: var(--white);
+
+  border: 1px solid var(--border);
+
+  border-radius: 13px;
+
+  box-shadow: var(--shadow-small);
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 17px;
+}
+
+.section-heading h2 {
+  margin-bottom: 3px;
+
+  font-size: 17px;
+}
+
+.section-heading p {
+  margin: 0;
+
+  color: var(--text-secondary);
+
+  font-size: 11px;
+}
+
+
+/* Empty */
+
+.empty-dashboard,
+.empty-patients {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 45px 20px;
+
+  text-align: center;
+
+  color: var(--text-secondary);
+}
+
+.empty-dashboard svg,
+.empty-patients svg {
+  margin-bottom: 10px;
+
+  color: var(--primary);
+}
+
+.empty-dashboard h3,
+.empty-patients h3 {
+  margin-bottom: 5px;
+
+  color: var(--text);
+
+  font-size: 15px;
+}
+
+.empty-dashboard p,
+.empty-patients p {
+  max-width: 420px;
+
+  margin-bottom: 17px;
+
+  font-size: 11px;
+}
+
+
+/* Recent patients */
+
+.recent-patients {
+  display: flex;
+  flex-direction: column;
+}
+
+.recent-patient-row {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns: 38px 1fr auto;
+
+  align-items: center;
+
+  gap: 11px;
+
+  padding: 11px 4px;
+
+  color: var(--text);
+
+  background: transparent;
+
+  border: none;
+
+  border-bottom: 1px solid var(--border-light);
+
+  text-align: left;
+}
+
+.recent-patient-row:last-child {
+  border-bottom: none;
+}
+
+.recent-patient-row:hover {
+  background: #f8fbfc;
+}
+
+.small-patient-avatar {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--primary);
+
+  background: var(--primary-light);
+
+  border-radius: 50%;
+
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.recent-patient-row strong {
+  display: block;
+
+  font-size: 12px;
+}
+
+.recent-patient-row span {
+  display: block;
+
+  color: var(--text-secondary);
+
+  font-size: 10px;
+}
+
+
+/* Status */
+
+.registered-status {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 5px;
+
+  color: var(--success) !important;
+
+  background: var(--success-bg);
+
+  border-radius: 20px;
+
+  padding: 4px 8px;
+
+  font-size: 9px !important;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   REGISTRATION
+   ========================================================= */
+
+.registration-page,
+.scanner-page,
+.patients-page,
+.profile-page {
+  min-height: calc(100vh - 72px);
+
+  padding: 32px 24px 60px;
+}
+
+.registration-container,
+.scanner-container,
+.patients-container,
+.profile-container {
+  width: 100%;
+  max-width: 1080px;
+
+  margin: 0 auto;
+}
+
+
+/* Page heading */
+
+.inner-header {
+  margin-bottom: 24px;
+}
+
+.inner-header > div:last-child {
+  margin-top: 19px;
+}
+
+.inner-header h1 {
+  margin: 7px 0 7px;
+
+  color: var(--text);
+
+  font-size: 30px;
+  line-height: 1.2;
+
+  letter-spacing: -0.025em;
+}
+
+.inner-header p {
+  margin: 0;
+
+  color: var(--text-secondary);
+
+  font-size: 12px;
+}
+
+
+/* Form error */
+
+.form-error {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  margin-bottom: 18px;
+
+  padding: 11px 13px;
+
+  color: var(--danger);
+
+  background: var(--danger-bg);
+
+  border: 1px solid #f0cccc;
+
+  border-radius: 9px;
+
+  font-size: 11px;
+}
+
+
+/* Form */
+
+.registration-container form {
+  width: 100%;
+}
+
+.form-section {
+  margin-bottom: 18px;
+
+  padding: 24px;
+
+  background: var(--white);
+
+  border: 1px solid var(--border);
+
+  border-radius: 14px;
+
+  box-shadow: var(--shadow-small);
+}
+
+
+/* Section heading */
+
+.form-section-heading {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 11px;
+
+  margin-bottom: 22px;
+}
+
+.form-section-heading > svg {
+  flex-shrink: 0;
+
+  margin-top: 2px;
+
+  color: var(--primary);
+}
+
+.form-section-heading h3 {
+  margin-bottom: 3px;
+
+  color: var(--text);
+
+  font-size: 16px;
+}
+
+.form-section-heading p {
+  margin: 0;
+
+  color: var(--text-secondary);
+
+  font-size: 11px;
+}
+
+
+/* Form grid */
+
+.form-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 18px;
+}
+
+.form-field {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field.full-field {
+  grid-column: 1 / -1;
+}
+
+
+/* Labels */
+
+.form-field label,
+.profile-card form label,
+.manual-search-card label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: var(--text);
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.required {
+  color: var(--danger);
+}
+
+
+/* Form controls */
+
+.form-field input,
+.form-field select,
+.form-field textarea,
+.profile-card form input,
+.profile-card form textarea,
+.manual-search-card input {
+  width: 100%;
+
+  color: var(--text);
+
+  background: #ffffff;
+
+  border: 1px solid var(--border);
+
+  border-radius: 8px;
+
+  font-size: 12px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.form-field input,
+.form-field select,
+.profile-card form input,
+.manual-search-card input {
+  height: 44px;
+
+  padding: 0 12px;
+}
+
+.form-field textarea,
+.profile-card form textarea {
+  min-height: 105px;
+
+  padding: 11px 12px;
+
+  resize: vertical;
+
+  line-height: 1.5;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder,
+.manual-search-card input::placeholder {
+  color: #9aa8b4;
+}
+
+.form-field input:hover,
+.form-field select:hover,
+.form-field textarea:hover,
+.profile-card form input:hover,
+.profile-card form textarea:hover,
+.manual-search-card input:hover {
+  border-color: #bccbd4;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus,
+.profile-card form input:focus,
+.profile-card form textarea:focus,
+.manual-search-card input:focus {
+  border-color: var(--primary);
+
+  box-shadow:
+    0 0 0 3px rgba(22, 117, 143, 0.10);
+}
+
+
+/* Select */
+
+.form-field select {
+  cursor: pointer;
+}
+
+
+/* Form actions */
+
+.form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 10px;
+
+  margin-top: 5px;
+}
+
+.form-actions .primary-button {
+  min-width: 210px;
+}
+
+
+/* =========================================================
+   SUCCESS / QR
+   ========================================================= */
+
+.success-page {
+  min-height: calc(100vh - 72px);
+
+  display: flex;
+  justify-content: center;
+
+  padding: 45px 24px 60px;
+}
+
+.success-card {
+  width: 100%;
+  max-width: 600px;
+
+  padding: 36px;
+
+  background: var(--white);
+
+  border: 1px solid var(--border);
+
+  border-radius: 16px;
+
+  box-shadow: var(--shadow);
+
+  text-align: center;
+}
+
+.success-card h1 {
+  margin: 8px 0;
+
+  font-size: 27px;
+}
+
+.success-card > p {
+  max-width: 450px;
+
+  margin: 0 auto 20px;
+
+  color: var(--text-secondary);
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   SCANNER
+   ========================================================= */
+
+.scanner-layout {
+  display: grid;
+
+  grid-template-columns: 1.5fr 1fr;
+
+  gap: 18px;
+}
+
+.scanner-card,
+.manual-search-card {
+  padding: 23px;
+
+  background: var(--white);
+
+  border: 1px solid var(--border);
+
+  border-radius: 14px;
+
+  box-shadow: var(--shadow-small);
+}
+
+.scanner-heading {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 11px;
+
+  margin-bottom: 20px;
+}
+
+.scanner-icon {
+  width: 38px;
+  height: 38px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--primary);
+
+  background: var(--primary-light);
+
+  border-radius: 9px;
+}
+
+.scanner-heading h2 {
+  margin-bottom: 3px;
+
+  font-size: 16px;
+}
+
+.scanner-heading p {
+  margin: 0;
+
+  color: var(--text-secondary);
+
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+
+/* Reader */
+
+.qr-reader {
+  width: 100%;
+  min-height: 310px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 15px;
+
+  overflow: hidden;
+
+  background: #f1f5f7;
+
+  border: 1px solid var(--border);
+
+  border-radius: 11px;
+}
+
+.qr-reader video {
+  display: block;
+
+  border-radius: 10px;
+}
+
+.scanner-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 40px 20px;
+
+  text-align: center;
+
+  color: var(--text-secondary);
+}
+
+.scanner-placeholder svg {
+  margin-bottom: 13px;
+
+  color: var(--primary);
+}
+
+.scanner-placeholder strong {
+  margin-bottom: 5px;
+
+  color: var(--text);
+
+  font-size: 13px;
+}
+
+.scanner-placeholder span {
+  max-width: 230px;
+
+  font-size: 10px;
+}
+
+
+/* Scanner buttons */
+
+.scanner-card > .primary-button,
+.scanner-card > .secondary-button,
+.manual-search-card > .primary-button {
+  width: 100%;
+}
+
+
+/* Scanner note */
+
+.scanner-note {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 8px;
+
+  margin-top: 15px;
+  padding: 11px 12px;
+
+  color: var(--text-secondary);
+
+  background: #f7fafb;
+
+  border: 1px solid var(--border-light);
+
+  border-radius: 8px;
+}
+
+.scanner-note svg {
+  flex-shrink: 0;
+
+  margin-top: 1px;
+
+  color: var(--primary);
+}
+
+.scanner-note p {
+  margin: 0;
+
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.scanner-note strong {
+  color: var(--text);
+}
+
+
+/* Manual */
+
+.manual-search-card input {
+  margin-bottom: 12px;
+}
+
+
+/* =========================================================
+   PATIENT RECORDS
+   ========================================================= */
+
+.patients-page {
+  padding-top: 32px;
+}
+
+.patients-container > .inner-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.patients-container > .inner-header > div:last-child {
+  margin-top: 0;
+}
+
+
+/* Summary */
+
+.records-summary {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 13px;
+
+  margin-bottom: 18px;
+}
+
+.summary-card {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 15px;
+
+  background: var(--white);
+
+  border: 1px solid var(--border);
+
+  border-radius: 11px;
+}
+
+.summary-icon {
+  width: 35px;
+  height: 35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--primary);
+
+  background: var(--primary-light);
+
+  border-radius: 8px;
+}
+
+.summary-card span {
+  display: block;
+
+  color: var(--text-secondary);
+
+  font-size: 9px;
+}
+
+.summary-card strong {
+  display: block;
+
+  font-size: 18px;
+}
+
+
+/* Tools */
+
+.patient-tools {
+  display: grid;
+
+  grid-template-columns: 1fr 210px;
+
+  gap: 10px;
+
+  margin-bottom: 16px;
+}
+
+.patient-search,
+.dindi-filter {
+  height: 43px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 0 12px;
+
+  background: var(--white);
+
+  border: 1px solid var(--border);
+
+  border-radius: 8px;
+}
+
+.patient-search svg,
+.dindi-filter svg {
+  flex-shrink: 0;
+
+  color: var(--text-secondary);
+}
+
+.patient-search input {
+  width: 100%;
+  height: 100%;
+
+  padding: 0;
+
+  color: var(--text);
+
+  background: transparent;
+
+  border: none;
+
+  outline: none;
+
+  font-size: 11px;
+}
+
+.dindi-filter select {
+  width: 100%;
+  height: 100%;
+
+  color: var(--text);
+
+  background: transparent;
+
+  border: none;
+
+  outline: none;
+
+  font-size: 11px;
+
+  cursor: pointer;
+}
+
+
+/* Table */
+
+.patients-table-card {
+  overflow: hidden;
+
+  background: var(--white);
+
+  border: 1px solid var(--border);
+
+  border-radius: 13px;
+
+  box-shadow: var(--shadow-small);
+}
+
+.table-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 19px 21px;
+
+  border-bottom: 1px solid var(--border-light);
+}
+
+.table-header h2 {
+  margin-bottom: 2px;
+
+  font-size: 15px;
+}
+
+.table-header p {
+  margin: 0;
+
+  color: var(--text-secondary);
+
+  font-size: 10px;
+}
+
+.table-wrapper {
+  width: 100%;
+
+  overflow-x: auto;
+}
+
+.patients-table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  font-size: 11px;
+  .patients-table th:last-child,
+  .patients-table td:last-child {
+    min-width: 250px;
+  }
+}
+
+.patients-table th {
+  padding: 11px 14px;
+
+  color: var(--text-secondary);
+
+  background: #f7fafb;
+
+  border-bottom: 1px solid var(--border);
+
+  font-size: 9px;
+  font-weight: 800;
+
+  text-align: left;
+
+  white-space: nowrap;
+}
+
+.patients-table td {
+  padding: 13px 14px;
+
+  border-bottom: 1px solid var(--border-light);
+
+  vertical-align: middle;
+
+  white-space: nowrap;
+}
+
+.patients-table tbody tr:hover {
+  background: #fbfdfe;
+}
+
+.patient-table-name {
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+}
+
+.patient-table-name strong {
+  display: block;
+
+  font-size: 11px;
+}
+
+.patient-table-name span {
+  display: block;
+
+  margin-top: 1px;
+
+  color: var(--text-secondary);
+
+  font-size: 9px;
+}
+
+.wari-id {
+  color: var(--primary);
+
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.blood-group {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 32px;
+
+  padding: 4px 7px;
+
+  color: var(--danger);
+
+  background: var(--danger-bg);
+
+  border-radius: 6px;
+
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.dindi-badge {
+  display: inline-flex;
+
+  padding: 4px 8px;
+
+  color: var(--primary);
+
+  background: var(--primary-light);
+
+  border-radius: 6px;
+
+  font-size: 9px;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   PROFILE
+   ========================================================= */
+
+.profile-container > .back-button {
+  margin-bottom: 17px;
+}
+
+.profile-card {
+  margin-bottom: 17px;
+
+  padding: 23px;
+
+  background: var(--white);
+
+  border: 1px solid var(--border);
+
+  border-radius: 14px;
+
+  box-shadow: var(--shadow-small);
+}
+
+
+/* Identity */
+
+.identity-card {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+}
+
+.patient-avatar {
+  width: 58px;
+  height: 58px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--primary);
+
+  background: var(--primary-light);
+
+  border-radius: 13px;
+}
+
+.patient-name {
+  flex: 1;
+}
+
+.patient-name > span {
+  display: block;
+
+  margin-bottom: 2px;
+
+  color: var(--text-secondary);
+
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.patient-name h2 {
+  margin-bottom: 2px;
+
+  font-size: 21px;
+}
+
+.patient-name strong {
+  color: var(--primary);
+
+  font-size: 11px;
+}
+
+.patient-status {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 6px;
+
+  padding: 6px 9px;
+
+  color: var(--success);
+
+  background: var(--success-bg);
+
+  border-radius: 20px;
+
+  font-size: 9px;
+  font-weight: 700;
+}
+
+
+/* Profile section */
+
+.profile-section-title {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 10px;
+
+  margin-bottom: 20px;
+}
+
+.profile-section-title > svg {
+  flex-shrink: 0;
+
+  margin-top: 2px;
+
+  color: var(--primary);
+}
+
+.profile-section-title h2 {
+  margin-bottom: 3px;
+
+  font-size: 16px;
+}
+
+.profile-section-title p {
+  margin: 0;
+
+  color: var(--text-secondary);
+
+  font-size: 10px;
+}
+
+
+/* Profile grid */
+
+.profile-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 12px;
+}
+
+.profile-field {
+  padding: 13px;
+
+  background: #f8fafb;
+
+  border: 1px solid var(--border-light);
+
+  border-radius: 8px;
+}
+
+.profile-field span {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: var(--text-secondary);
+
+  font-size: 9px;
+}
+
+.profile-field strong {
+  display: block;
+
+  color: var(--text);
+
+  font-size: 12px;
+}
+
+
+/* Emergency */
+
+.emergency-card {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  margin-bottom: 17px;
+
+  padding: 15px;
+
+  color: var(--danger);
+
+  background: var(--danger-bg);
+
+  border: 1px solid #f0cccc;
+
+  border-radius: 11px;
+}
+
+.emergency-icon {
+  width: 37px;
+  height: 37px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  background: #ffffff;
+
+  border-radius: 8px;
+}
+
+.emergency-card span {
+  display: block;
+
+  margin-bottom: 2px;
+
+  color: var(--text-secondary);
+
+  font-size: 9px;
+}
+
+.emergency-card strong {
+  color: var(--danger);
+
+  font-size: 13px;
+}
+
+
+/* Medical information */
+
+.medical-info-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 12px;
+}
+
+.medical-information {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 10px;
+
+  padding: 14px;
+
+  background: #f8fafb;
+
+  border: 1px solid var(--border-light);
+
+  border-radius: 9px;
+}
+
+.medical-information-icon {
+  width: 32px;
+  height: 32px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--primary);
+
+  background: var(--primary-light);
+
+  border-radius: 7px;
+}
+
+.medical-information span {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color: var(--text-secondary);
+
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.medical-information p {
+  margin: 0;
+
+  color: var(--text);
+
+  font-size: 11px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   MEDICATIONS
+   ========================================================= */
+
+.medication-list {
+  display: flex;
+  flex-direction: column;
+
+  gap: 7px;
+
+  margin-bottom: 15px;
+}
+
+.medication-row {
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  padding: 10px 11px;
+
+  background: #f8fafb;
+
+  border: 1px solid var(--border-light);
+
+  border-radius: 8px;
+}
+
+.medication-row > svg {
+  color: var(--primary);
+}
+
+.medication-row span {
+  flex: 1;
+
+  font-size: 11px;
+}
+
+.medication-row button {
+  width: 27px;
+  height: 27px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--danger);
+
+  background: var(--danger-bg);
+
+  border: none;
+
+  border-radius: 6px;
+}
+
+.medication-row button:hover {
+  background: #ffe4e4;
+}
+
+.inline-form {
+  display: grid;
+
+  grid-template-columns: 1fr auto;
+
+  gap: 8px;
+}
+
+.inline-form input {
+  width: 100%;
+  height: 42px;
+
+  padding: 0 12px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 8px;
+
+  outline: none;
+
+  font-size: 11px;
+}
+
+.inline-form input:focus {
+  border-color: var(--primary);
+
+  box-shadow:
+    0 0 0 3px rgba(22, 117, 143, 0.10);
+}
+
+
+/* =========================================================
+   VITALS
+   ========================================================= */
+
+.vitals-history {
+  display: flex;
+  flex-direction: column;
+
+  gap: 9px;
+}
+
+.vitals-record {
+  padding: 14px;
+
+  background: #f8fafb;
+
+  border: 1px solid var(--border-light);
+
+  border-radius: 9px;
+}
+
+.vitals-record strong {
+  color: var(--text);
+
+  font-size: 10px;
+}
+
+.vitals-record p {
+  margin: 5px 0 0;
+
+  color: var(--text-secondary);
+
+  font-size: 10px;
+
+  line-height: 1.6;
+}
+
+.vitals-record p strong {
+  font-size: 10px;
+}
+
+
+/* Profile actions */
+
+.profile-actions {
+  display: flex;
+  justify-content: flex-end;
+
+  margin-top: 5px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .main-header {
+    padding: 0 20px;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .scanner-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .medical-info-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+@media (max-width: 700px) {
+  .main-header {
+    min-height: 66px;
+
+    padding: 0 14px;
+  }
+
+  .header-brand strong {
+    font-size: 12px;
+  }
+
+  .header-brand span {
+    display: none;
+  }
+
+  .doctor-info {
+    display: none;
+  }
+
+  .dashboard-page,
+  .registration-page,
+  .scanner-page,
+  .patients-page,
+  .profile-page {
+    padding: 24px 14px 45px;
+  }
+
+  .dashboard-heading h1,
+  .inner-header h1 {
+    font-size: 25px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-field.full-field {
+    grid-column: auto;
+  }
+
+  .form-section,
+  .profile-card,
+  .scanner-card,
+  .manual-search-card,
+  .dashboard-section {
+    padding: 18px;
+  }
+
+  .form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .form-actions .primary-button,
+  .form-actions .secondary-button {
+    width: 100%;
+  }
+
+  .patients-container > .inner-header {
+    display: block;
+  }
+
+  .patients-container > .inner-header > .primary-button {
+    margin-top: 15px;
+    width: 100%;
+  }
+
+  .patient-tools {
+    grid-template-columns: 1fr;
+  }
+
+  .records-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .identity-card {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .patient-status {
+    width: 100%;
+
+    justify-content: center;
+  }
+
+  .profile-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .success-card {
+    padding: 25px 18px;
+  }
+}
+
+
+@media (max-width: 450px) {
+  .login-page {
+    padding: 18px 12px;
+  }
+
+  .login-card {
+    padding: 27px 20px;
+    border-radius: 14px;
+  }
+
+  .brand-mark {
+    width: 43px;
+    height: 43px;
+  }
+
+  .login-heading h2 {
+    font-size: 25px;
+  }
+
+  .qr-reader {
+    min-height: 250px;
+  }
+
+  .form-section {
+    padding: 15px;
+  }
+
+  .scanner-card,
+  .manual-search-card {
+    padding: 15px;
+  }
+}
+/* =========================================================
+   WARI HEALTH PASSPORT
+   ========================================================= */
+
+.passport-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 30px 20px 50px;
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   PASSPORT
+   ========================================================= */
+
+.wari-passport {
+  width: min(620px, 100%);
+  min-height: 880px;
+  background: #ffffff;
+  border: 3px solid #075f4f;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 18px 45px rgba(0, 60, 50, 0.14);
+  position: relative;
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.passport-header {
+  min-height: 310px;
+  background: #075f4f;
+  color: white;
+  text-align: center;
+  padding: 28px 30px 0;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.passport-symbol {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.passport-line {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin: 0 auto 18px;
+  max-width: 500px;
+}
+
+.passport-line span {
+  height: 2px;
+  background: rgba(255, 255, 255, 0.85);
+  flex: 1;
+}
+
+.passport-line span:first-child::before,
+.passport-line span:last-child::after {
+  content: "◆";
+  font-size: 8px;
+  vertical-align: middle;
+}
+
+.passport-header h1 {
+  margin: 0;
+  font-size: 46px;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.passport-header h2 {
+  margin: 8px 0 0;
+  font-size: 48px;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.passport-curve {
+  position: absolute;
+  left: -8%;
+  bottom: -115px;
+  width: 116%;
+  height: 190px;
+  background: white;
+  border-radius: 50% 50% 0 0;
+  border-top: 4px solid rgba(7, 95, 79, 0.9);
+}
+
+
+/* =========================================================
+   QR
+   ========================================================= */
+
+.passport-qr-section {
+  display: flex;
+  justify-content: center;
+  padding: 15px 30px 20px;
+  background: white;
+}
+
+.passport-qr-box {
+  width: 270px;
+  height: 270px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  border: 4px solid #075f4f;
+  border-radius: 28px;
+  box-sizing: border-box;
+}
+
+.passport-qr-box svg {
+  display: block;
+  max-width: 88%;
+  max-height: 88%;
+}
+
+
+/* =========================================================
+   DIVIDER
+   ========================================================= */
+
+.passport-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 10px 70px 28px;
+}
+
+.passport-divider span {
+  height: 2px;
+  background: #075f4f;
+  flex: 1;
+}
+
+.passport-divider strong {
+  color: #075f4f;
+  font-size: 22px;
+}
+
+
+/* =========================================================
+   ID / NAME FIELDS
+   ========================================================= */
+
+.passport-field {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin: 0 70px 30px;
+}
+
+.passport-field-icon {
+  width: 72px;
+  height: 72px;
+  min-width: 72px;
+  border-radius: 15px;
+  background: #075f4f;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.passport-field-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.passport-field-content span {
+  display: block;
+  color: #075f4f;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  margin-bottom: 7px;
+}
+
+.passport-field-content strong {
+  display: block;
+  color: #075f4f;
+  font-size: 25px;
+  font-weight: 800;
+  border-bottom: 2px solid #075f4f;
+  padding-bottom: 8px;
+  word-break: break-word;
+}
+
+
+/* =========================================================
+   BOTTOM DECORATION
+   ========================================================= */
+
+.passport-bottom-decoration {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin: 25px 70px 30px;
+}
+
+.passport-bottom-decoration span {
+  height: 2px;
+  background: #075f4f;
+  flex: 1;
+}
+
+.passport-bottom-decoration strong {
+  color: #075f4f;
+  font-size: 27px;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.passport-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  width: min(620px, 100%);
+}
+
+.passport-actions button {
+  min-height: 44px;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+  .wari-passport {
+    min-height: auto;
+    border-radius: 20px;
+  }
+
+  .passport-header {
+    min-height: 245px;
+    padding-top: 22px;
+  }
+
+  .passport-header h1 {
+    font-size: 34px;
+  }
+
+  .passport-header h2 {
+    font-size: 36px;
+  }
+
+  .passport-qr-box {
+    width: 220px;
+    height: 220px;
+  }
+
+  .passport-field {
+    margin-left: 30px;
+    margin-right: 30px;
+    gap: 15px;
+  }
+
+  .passport-field-icon {
+    width: 58px;
+    height: 58px;
+    min-width: 58px;
+  }
+
+  .passport-field-content strong {
+    font-size: 20px;
+  }
+
+  .passport-divider {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .passport-bottom-decoration {
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+
+}
+
+
+/* =========================================================
+   PRINT
+   ========================================================= */
+
+@media print {
+
+  body {
+    background: white !important;
+  }
+
+  body * {
+    visibility: hidden;
+  }
+
+  #wari-passport,
+  #wari-passport * {
+    visibility: visible;
+  }
+
+  #wari-passport {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: 190mm;
+    min-height: 270mm;
+    box-shadow: none;
+    border-radius: 0;
+    margin: 0;
+  }
+
+  .passport-actions {
+    display: none !important;
+  }
+
+  .passport-wrapper {
+    padding: 0;
+    margin: 0;
+  }
+
+  @page {
+    size: A4 portrait;
+    margin: 10mm;
+  }
+}
+/* =========================================================
+   RECORD QR
+   ========================================================= */
+
+.record-qr-content {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding: 10px 0 5px;
+}
+
+.record-qr-box {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.record-qr-box svg {
+  display: block;
+}
+
+.record-qr-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.record-qr-details span {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--muted);
+  letter-spacing: 1px;
+}
+
+.record-qr-details strong {
+  font-size: 25px;
+  color: var(--primary);
+}
+
+.record-qr-details p {
+  max-width: 320px;
+  margin: 4px 0 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 650px) {
+
+  .record-qr-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+}
+/* =========================================================
+   PATIENT TABLE ACTIONS
+   ========================================================= */
+
+.patient-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.delete-patient-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+
+  min-height: 34px;
+  padding: 7px 11px;
+
+  border: 1px solid #efb5b5;
+  border-radius: 8px;
+
+  background: #fff5f5;
+  color: #c62828;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.delete-patient-button:hover {
+  background: #ffe7e7;
+  border-color: #e28b8b;
+  transform: translateY(-1px);
+}
+
+.delete-patient-button:active {
+  transform: translateY(0);
+}
+/* =========================================================
+   RECENTLY REGISTERED ACTIONS
+   ========================================================= */
+
+.recent-patient-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+.recent-patient-info {
+  flex: 1;
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+
+  padding: 0;
+  border: none;
+  background: transparent;
+
+  text-align: left;
+  cursor: pointer;
+}
+
+
+.recent-patient-info strong {
+  color: var(--text-h);
+  font-size: 14px;
+}
+
+
+.recent-patient-info span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+
+.recent-patient-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+
+.recent-view-button,
+.recent-delete-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+
+  min-height: 32px;
+  padding: 6px 10px;
+
+  border-radius: 7px;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+
+.recent-view-button {
+  border: 1px solid var(--border);
+  background: white;
+  color: var(--text-h);
+}
+
+
+.recent-view-button:hover {
+  background: var(--surface);
+}
+
+
+.recent-delete-button {
+  border: 1px solid #efb5b5;
+  background: #fff5f5;
+  color: #c62828;
+}
+
+
+.recent-delete-button:hover {
+  background: #ffe7e7;
+  border-color: #e28b8b;
+}
+
+
+@media (max-width: 750px) {
+
+  .recent-patient-row {
+    flex-wrap: wrap;
+  }
+
+  .recent-patient-actions {
+    width: 100%;
+    margin-left: 52px;
+  }
+
+}
+/* =========================================================
+   RECORD QR ACTIONS
+   ========================================================= */
+
+.record-qr-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.record-qr-actions {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+
+.qr-print-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  flex: 1;
+
+  min-height: 36px;
+  padding: 7px 12px;
+
+  border: 1px solid var(--border);
+  border-radius: 8px;
+
+  background: white;
+  color: var(--text-h);
+
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.qr-print-button:hover {
+  background: var(--surface);
+  border-color: var(--primary);
+  transform: translateY(-1px);
+}
+
+.qr-print-button:active {
+  transform: translateY(0);
+}
+
+
+/* Mobile */
+
+@media (max-width: 650px) {
+
+  .record-qr-actions {
+    width: 220px;
+  }
+
+}
+/* =========================================================
+   WARI HEALTH QR - VIEW RECORD
+   ========================================================= */
+
+.record-qr-content {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  padding: 24px 0;
+}
+
+
+/* QR + buttons */
+
+.record-qr-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+
+/* QR box */
+
+.record-qr-box {
+  width: 250px;
+  height: 250px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #ffffff;
+
+  border: 1px solid var(--border);
+  border-radius: 18px;
+
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+
+  box-sizing: border-box;
+}
+
+
+/* Print buttons */
+
+.record-qr-actions {
+  display: flex;
+  gap: 10px;
+  width: 250px;
+}
+
+
+.qr-print-button {
+  flex: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  height: 38px;
+
+  border: 1px solid var(--border);
+  border-radius: 8px;
+
+  background: #ffffff;
+  color: var(--text-h);
+
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.qr-print-button:hover {
+  background: #f1f8fa;
+  border-color: #19758e;
+  transform: translateY(-1px);
+}
+
+
+.qr-print-button:active {
+  transform: translateY(0);
+}
+
+
+/* QR information */
+
+.record-qr-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+
+.record-qr-details span {
+  color: #8295a6;
+
+  font-size: 13px;
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+}
+
+
+.record-qr-details strong {
+  color: #14748d;
+
+  font-size: 30px;
+  font-weight: 800;
+
+  letter-spacing: 0.5px;
+}
+
+
+.record-qr-details p {
+  max-width: 430px;
+
+  margin: 0;
+
+  color: #7b91a5;
+
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+
+/* Mobile */
+
+@media (max-width: 700px) {
+
+  .record-qr-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .record-qr-left {
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .record-qr-box {
+    width: 250px;
+    height: 250px;
+  }
+
+  .record-qr-actions {
+    width: 250px;
+  }
+
+  .record-qr-details strong {
+    font-size: 25px;
+  }
+}
+
+
+/* =========================================================
+   PRINT BUTTONS - HIDE FROM PRINTED PAGE
+   ========================================================= */
+
+@media print {
+
+  .record-qr-actions {
+    display: none !important;
+  }
+
+}
+
+/* =========================================================
+   WARI HEALTH QR
+   ========================================================= */
+
+.record-qr-content {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  padding: 24px 0;
+}
+
+.record-qr-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.record-qr-box {
+  width: 250px;
+  height: 250px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #ffffff;
+
+  border: 1px solid var(--border);
+  border-radius: 18px;
+
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+
+  box-sizing: border-box;
+}
+
+.record-qr-box svg {
+  display: block;
+  width: 190px;
+  height: 190px;
+}
+
+.record-qr-actions {
+  display: flex;
+  gap: 10px;
+  width: 250px;
+}
+
+.qr-print-button {
+  flex: 1;
+
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  border: 1px solid var(--border);
+  border-radius: 8px;
+
+  background: #ffffff;
+  color: var(--text-h);
+
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.qr-print-button:hover {
+  background: #f1f8fa;
+  border-color: #19758e;
+  transform: translateY(-1px);
+}
+
+.qr-print-button:active {
+  transform: translateY(0);
+}
+
+.record-qr-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.record-qr-details span {
+  color: #8295a6;
+
+  font-size: 13px;
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+}
+
+.record-qr-details strong {
+  color: #14748d;
+
+  font-size: 30px;
+  font-weight: 800;
+
+  letter-spacing: 0.5px;
+}
+
+.record-qr-details p {
+  max-width: 430px;
+
+  margin: 0;
+
+  color: #7b91a5;
+
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+
+
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  .record-qr-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .record-qr-left {
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .record-qr-details strong {
+    font-size: 25px;
+  }
+
+}
+
+
+/* =========================================================
+   PRINT SETTINGS
+   ========================================================= */
+
+@media print {
+
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  body {
+    margin: 0;
+  }
+
+}
+
+/* =========================================================
+   WARI HEALTH PASSPORT
+   ========================================================= */
+
+.passport-page {
+  min-height: calc(100vh - 80px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 35px 20px 60px;
+
+  background: #f3f7f8;
+}
+
+
+.passport-card {
+  width: min(100%, 560px);
+
+  background: #ffffff;
+
+  border: 2px solid #075f4f;
+
+  border-radius: 28px;
+
+  overflow: hidden;
+
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+}
+
+
+/* HEADER */
+
+.passport-header {
+  position: relative;
+
+  padding: 28px 25px 35px;
+
+  text-align: center;
+
+  color: white;
+
+  background: #075f4f;
+}
+
+
+.passport-heart {
+  display: flex;
+  justify-content: center;
+
+  margin-bottom: 12px;
+}
+
+
+.passport-header h1 {
+  margin: 0;
+
+  font-size: 38px;
+
+  font-weight: 900;
+
+  letter-spacing: 2px;
+}
+
+
+.passport-header h2 {
+  margin: 2px 0 0;
+
+  font-size: 34px;
+
+  font-weight: 900;
+
+  letter-spacing: 2px;
+}
+
+
+/* QR */
+
+.passport-qr-area {
+  padding: 38px 20px 25px;
+
+  display: flex;
+
+  justify-content: center;
+}
+
+
+.passport-qr-box {
+  width: 260px;
+  height: 260px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background: white;
+
+  border: 3px solid #075f4f;
+
+  border-radius: 24px;
+
+  padding: 20px;
+}
+
+
+.passport-qr-box svg {
+  width: 100%;
+  height: 100%;
+}
+
+
+/* DIVIDER */
+
+.passport-divider {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  padding: 5px 55px 25px;
+}
+
+
+.passport-divider span {
+  flex: 1;
+
+  height: 2px;
+
+  background: #075f4f;
+}
+
+
+.passport-divider strong {
+  color: #075f4f;
+
+  font-size: 24px;
+}
+
+
+/* INFORMATION */
+
+.passport-information {
+  padding: 0 55px;
+}
+
+
+.passport-info-row {
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+
+  margin-bottom: 24px;
+}
+
+
+.passport-info-icon {
+  width: 58px;
+  height: 58px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+
+  background: #075f4f;
+
+  border-radius: 12px;
+}
+
+
+.passport-info-content {
+  flex: 1;
+
+  min-width: 0;
+}
+
+
+.passport-info-content span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #075f4f;
+
+  font-size: 13px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+}
+
+
+.passport-info-content strong {
+  display: block;
+
+  width: 100%;
+
+  padding-bottom: 8px;
+
+  border-bottom: 1px solid #075f4f;
+
+  color: #075f4f;
+
+  font-size: 24px;
+
+  font-weight: 800;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* FOOTER */
+
+.passport-footer {
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  padding: 15px 55px 30px;
+
+  color: #075f4f;
+}
+
+
+.passport-footer span {
+  flex: 1;
+
+  height: 2px;
+
+  background: #075f4f;
+}
+
+
+/* ACTIONS */
+
+.passport-actions {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 12px;
+
+  margin-top: 20px;
+}
+
+
+/* =========================================================
+   PRINT
+   ========================================================= */
+
+@media print {
+
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
+
+
+  html,
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+
+    background: white !important;
+  }
+
+
+  body * {
+    visibility: hidden;
+  }
+
+
+  .passport-page,
+  .passport-page * {
+    visibility: visible;
+  }
+
+
+  .passport-page {
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    padding: 0;
+
+    background: white;
+  }
+
+
+  .passport-card {
+    width: 100vw;
+
+    min-height: 100vh;
+
+    border: none;
+
+    border-radius: 0;
+
+    box-shadow: none;
+  }
+
+
+  .passport-actions {
+    display: none !important;
+  }
+}
+
+.delete-patient-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  min-width: 73px;
+  height: 34px;
+
+  padding: 0 12px;
+
+  border: 1px solid #f3a0a0;
+  border-radius: 8px;
+
+  background: #fffafa;
+  color: #d62828;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.delete-patient-button:hover {
+  background: #fff1f1;
+  border-color: #e57373;
+}
+
+.medication-search-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.medication-search-wrapper .inline-form {
+  width: 100%;
+}
+
+.medication-search-wrapper .inline-form input {
+  flex: 1;
+}
+
+.medication-suggestions {
+  position: absolute;
+  left: 0;
+  right: 90px;
+  top: calc(100% + 5px);
+
+  background: #ffffff;
+
+  border: 1px solid #d8e2e8;
+  border-radius: 10px;
+
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+
+  overflow: hidden;
+
+  z-index: 50;
+}
+
+.medication-suggestion {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 11px 14px;
+
+  border: none;
+  border-bottom: 1px solid #edf1f3;
+
+  background: #ffffff;
+
+  color: #16445a;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  text-align: left;
+
+  cursor: pointer;
+}
+
+.medication-suggestion:last-child {
+  border-bottom: none;
+}
+
+.medication-suggestion:hover {
+  background: #f1f8fa;
+}
+
+.medication-suggestion svg {
+  color: #087f8c;
+  flex-shrink: 0;
+}
