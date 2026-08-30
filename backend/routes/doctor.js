@@ -16,7 +16,7 @@ router.post("/login", (req, res) => {
 
     const query = `
         SELECT doctor_id, name, specialization, contact_number, camp_id
-        FROM doctor
+        FROM Doctor
         WHERE username = ? AND password = ?
     `;
 
