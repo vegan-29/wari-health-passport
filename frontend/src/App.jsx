@@ -32,7 +32,7 @@ import {
    ========================================================= */
 const API_BASE =
   import.meta.env.VITE_API_BASE_URL ||
-  "https://wari-health-passport-production.up.railway.app"
+  "https://wari-health-passport-production.up.railway.app/api"
 
 const getInitials = (name = "") => name.split(" ").filter(Boolean).slice(0,2).map(w=>w[0]).join("").toUpperCase();
 
@@ -141,27 +141,37 @@ export default function App() {
 
 function LoginPage({ onLogin }) {
   const [username,setUsername]=useState("");const [password,setPassword]=useState("");const [showPassword,setShowPassword]=useState(false);const [error,setError]=useState("");const [loading,setLoading]=useState(false);
-  const handleSubmit = (event) => {
-  event.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setError("");
 
-  if (!username.trim() || !password) {
-    setError("Please enter your username and password.");
-    return;
-  }
+    if (!username.trim() || !password) {
+      setError("Please enter your username and password.");
+      return;
+    }
 
-  const doctor = DEMO_DOCTORS.find(
-    (item) =>
-      item.username === username.trim() &&
-      item.password === password
-  );
+    setLoading(true);
+    try {
+      const data = await apiFetch("/doctor/login", {
+        method: "POST",
+        body: JSON.stringify({
+          username: username.trim(),
+          password,
+        }),
+      });
 
-  if (doctor) {
-    onLogin(doctor);
-    return;
-  }
+      if (!data?.doctor?.doctor_id) {
+        throw new Error("Login succeeded but no doctor account was returned.");
+      }
 
-  setError("Invalid credentials. Use the demo credentials shown below.");
-};
+      onLogin(data.doctor);
+    } catch (error) {
+      console.error("Doctor login error:", error);
+      setError(error.message || "Could not connect to the backend.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return <div className="login-page"><div className="login-card"><div className="brand-mark"><HeartPulse size={25}/></div><div className="login-heading"><span className="eyebrow">WARI MEDICAL PASSPORT</span><h2>Doctor Login</h2><p>Secure access for authorised medical camp personnel.</p></div><form onSubmit={handleSubmit}><label>Username</label><input type="text" value={username} onChange={e=>setUsername(e.target.value)} placeholder="Enter username" autoComplete="username"/><label>Password</label><div className="password-wrapper"><input type={showPassword?"text":"password"} value={password} onChange={e=>setPassword(e.target.value)} placeholder="Enter password" autoComplete="current-password"/><button type="button" className="password-toggle" onClick={()=>setShowPassword(v=>!v)}>{showPassword?"Hide":"Show"}</button></div>{error&&<div className="error-message"><AlertCircle size={14}/>{error}</div>}<button type="submit" className="primary-button" disabled={loading}><ShieldCheck size={15}/>{loading?"Signing in...":"Sign in"}</button></form><div className="demo-login"><strong>Demo access</strong><span>Username: anjali</span><span>Password: doctor123</span></div></div></div>;
 }
@@ -467,15 +477,9 @@ function RegistrationPage({ doctor, onBack, onRegister }) {
     }
 
     try {
-      const response = await fetch(
-        "https://wari-health-passport-production.up.railway.app",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "X-Doctor-ID": doctor?.doctor_id || "",
-          },
-          body: JSON.stringify({
+      const data = await apiFetch("/warkari/register", {
+        method: "POST",
+        body: JSON.stringify({
             name: form.name.trim(),
             age: Number(form.age),
             gender: form.gender,
@@ -499,16 +503,7 @@ function RegistrationPage({ doctor, onBack, onRegister }) {
             relationship: "Emergency",
             phone_number: form.emergencyContact.trim(),
           }),
-        }
-      );
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(
-          data.message || "Could not register Warkari."
-        );
-      }
+      }, doctor);
 
       /*
        * IMPORTANT:

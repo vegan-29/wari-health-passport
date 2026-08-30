@@ -685,7 +685,7 @@ router.post("/register", (req, res) => {
                                ------------------------------------------------- */
 
                             const contactQuery = `
-                                INSERT INTO emergency_contact
+                                INSERT INTO Emergency_Contact
                                 (
                                     warkari_id,
                                     contact_name,
@@ -1006,7 +1006,7 @@ router.delete("/:id", (req, res) => {
                                    ----------------------------------------- */
 
                                 const deleteContactQuery = `
-                                    DELETE FROM emergency_contact
+                                    DELETE FROM Emergency_Contact
                                     WHERE warkari_id = ?
                                 `;
 
